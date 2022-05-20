@@ -7,8 +7,10 @@ import com.example.todoapp.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main. activity_main.*
-import kotlinx.android.synthetic.main.activity_main.add
 import kotlinx.android.synthetic.main.item_todo.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            RoomDatabase::class.java, "CheckList"
+        ).build()
+
         todoAdapter = TodoAdapter(mutableListOf())
 
         rvTOdoItem.adapter = todoAdapter
