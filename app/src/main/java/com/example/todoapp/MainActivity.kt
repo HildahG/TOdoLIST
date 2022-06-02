@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val db = Room.databaseBuilder(
+        val database = Room.databaseBuilder(
             applicationContext,
             RoomDatabase::class.java, "CheckList"
         ).build()
