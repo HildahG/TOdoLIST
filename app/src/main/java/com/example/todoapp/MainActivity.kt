@@ -9,6 +9,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.todoapp.Users.User
+import com.example.todoapp.Users.UserDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main. activity_main.*
 import kotlinx.android.synthetic.main.item_todo.*
@@ -21,10 +23,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val database = Room.databaseBuilder(
+        val db = Room.databaseBuilder(
             applicationContext,
-            RoomDatabase::class.java, "CheckList"
+            UserDatabase::class.java, "CheckList"
         ).build()
+
+        val userDao= db.userDao()
+       val user : List<User> =userDao.getAll()
 
         todoAdapter = TodoAdapter(mutableListOf())
 
