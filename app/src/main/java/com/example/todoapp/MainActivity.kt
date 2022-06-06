@@ -23,13 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            UserDatabase::class.java, "CheckList"
-        ).build()
+//        val db = Room.databaseBuilder(
+//            applicationContext,
+//            UserDatabase::class.java, "CheckList"
+//        ).build()
 
-        val userDao= db.userDao()
-       val user : List<User> =userDao.getAll()
 
         todoAdapter = TodoAdapter(mutableListOf())
 

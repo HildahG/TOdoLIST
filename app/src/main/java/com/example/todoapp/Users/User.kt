@@ -7,13 +7,14 @@ import androidx.room.PrimaryKey
 @Entity
 //data class User (
 //    @PrimaryKey(autoGenerate = true)
-//    val id : Int,
-//    val todo: String,
-//    var ischecked: Boolean,
+//    val id : Int,val
+////    var ischecked
+//    : Boolean,
 //)
 ///@Entity
 data class User(
-        @PrimaryKey val uid: Int,
-        @ColumnInfo(name = "To_do") val title: String?,
-        @ColumnInfo(name = "checked") var ischecked: Boolean?,
+        @PrimaryKey (autoGenerate = true)
+        val uid: Int,
+         val title: String?,
+        val ischecked: Boolean?,
         )
